@@ -29,27 +29,25 @@ function updateMenuItems() {
     let menuValue = menuCategory.value;
     console.log(menuValue); // drinks, entrees, desserts
 
-
+    // if statement to check menu value and passes the object key to addtolistbox function
     if (menuValue == "drinks") {
-        //populate with drinks
-        addToListBox(menu.drinks)
+        addToListBox(menu.drinks);
     }else if (menuValue == "entrees") {
-        //populate with entrees
-        addToListBox(menu.entrees)
-    }
-    else if (menuValue == "desserts") {
-        //populate with desserts
-        addToListBox(menu.desserts)
+        addToListBox(menu.entrees);
+    }else if (menuValue == "desserts") {
+        addToListBox(menu.desserts);
     }
 
 };
 
 function addToListBox(_category) {
+    const itemListbox = document.getElementById('itemListbox');
 
+    //forEach loop to loop thru each item in the array
     let categoryMenu = _category;
     categoryMenu.forEach((item) => {
         let itemOptions = new Option(item, item)
-        itemListbox.appendChild(itemOptions);
+        itemListbox.appendChild(itemOptions); // appends every mennu item into the list box
         // console.log(itemListbox);
     })
 };
@@ -58,7 +56,6 @@ function addToListBox(_category) {
 window.onload = init;
 
 function init() {
-
 
     updateMenuItems();
     const onMenuSelectChange = document.getElementById('menuCategory');
