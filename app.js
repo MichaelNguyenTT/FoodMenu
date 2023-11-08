@@ -45,8 +45,6 @@ function updateMenuItems() {
 };
 
 function addToListBox(_category) {
-    const itemListbox = document.getElementById('itemListbox');
-    itemListbox.innerHTML = '' // clears the options
 
     let categoryMenu = _category;
     categoryMenu.forEach((item) => {
@@ -61,10 +59,14 @@ window.onload = init;
 
 function init() {
 
-    const onMenuSelectChange = document.getElementById('menuCategory');
-    updateMenuItems();
-    onMenuSelectChange.onchange = updateMenuItems;
 
+    updateMenuItems();
+    const onMenuSelectChange = document.getElementById('menuCategory');
+    onMenuSelectChange.onchange = function () {
+        const itemListbox = document.getElementById('itemListbox');
+        itemListbox.innerHTML = '';
+        updateMenuItems();
+    }
 };
 
 
